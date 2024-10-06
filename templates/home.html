@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .weather-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .weather-info h2 {
+            margin: 5px 0;
+        }
+
+        .weather-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Previsão Climática</h1>
+    <p>Cidade: {{ city }}</p>
+    <p>Temperatura: {{ temperature }}°C</p>
+    <p>Descrição do Tempo: {{ weather_desc }}</p>
+    <p>Data Atual: {{ current_date }}</p>
+    <p>Dia da Semana: {{ day_of_week }}</p>
+    
+    {% if risco is not none %}
+        <p>Risco de Seca: {{ risco }}</p>
+    {% endif %}
+    
+    {% if melhor_cultivo %}
+        <p>Melhor Cultivo: {{ melhor_cultivo }}</p>
+    {% endif %}
+    
+    <h2>Dados Climáticos</h2>
+    <ul>
+        <li>Umidade: {{ umidade }}</li>
+        <li>Precipitação: {{ precipitacao }}</li>
+        <li>Vento: {{ vento }}</li>
+        <li>Índice UV: {{ indice_uv }}</li>
+        <li>Temperatura Máxima: {{ temperatura_dados }}</li>
+        <li>Sunrise: {{ sunrise }}</li>
+        <li>Sunset: {{ sunset }}</li>
+    </ul>
+    
+
+
+    <div class="form-container">
+        <form method="POST" action="/">
+            <input type="text" name="city" placeholder="Digite o nome da cidade">
+
+            <label for="start_date">Data de Início (YYYYMMDD):</label>
+            <input type="text" id="start_date" name="start_date" required>
+            <br>
+            <label for="end_date">Data de Fim (YYYYMMDD):</label>
+            <input type="text" id="end_date" name="end_date" required>
+            <br>
+
+            <button type="submit">Obter Previsão</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
