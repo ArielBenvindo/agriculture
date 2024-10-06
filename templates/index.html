@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão de Seca</title>
+</head>
+<body>
+    <h1>Previsão de Seca</h1>
+    <form method="POST" action="/">
+        <label for="start_date">Data de Início (YYYYMMDD):</label>
+        <input type="text" id="start_date" name="start_date" required>
+        <br>
+        <label for="end_date">Data de Fim (YYYYMMDD):</label>
+        <input type="text" id="end_date" name="end_date" required>
+        <br>
+        <button type="submit">Calcular Risco</button>
+    </form>
+
+    <h1>Resultados</h1>
+    {% if risco %}
+        <p>Risco de seca: {{ risco }}</p>
+        <p>A melhor semente para você comprar: {{ melhor_cultivo }}</p>
+    {% else %}
+        <p>Preencha as informações para obter uma recomendação.</p>
+    {% endif %}
+</body>
+</html>
