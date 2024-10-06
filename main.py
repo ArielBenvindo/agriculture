@@ -85,14 +85,18 @@ def calcular_medias(dados_climaticos):
     
     for parametro in parametros:
         valores = list(dados_climaticos.get(parametro, {}).values())
+        print(f"Valores para {parametro}: {valores}")  # Print para verificar os valores
         
-        # Filtra valores válidos, excluindo -999
-        valores_validos = [valor for valor in valores if valor != -999]
+        # Filtra valores válidos: excluindo -999 e None, e garantindo que sejam numéricos
+        valores_validos = [valor for valor in valores if valor != -999 and valor is not None and isinstance(valor, (int, float))]
+        print(f"Valores válidos para {parametro}: {valores_validos}")  # Print para verificar valores válidos
         
         if valores_validos:
             medias[parametro] = sum(valores_validos) / len(valores_validos)
+            print(f"Média calculada para {parametro}: {medias[parametro]}")  # Print para verificar a média
         else:
-            medias[parametro] = None 
+            medias[parametro] = 0
+            print(f"Sem valores válidos para calcular a média de {parametro}.")  # Print quando não há valores válidos
 
     return medias
 
