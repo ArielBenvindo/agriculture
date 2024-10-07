@@ -45,11 +45,11 @@ def calcular_risco_seca(dados):
 
     # Determinar o nível de risco
     if pontuacao >= 8:
-        return 'Alto risco de seca'
+        return 'Alto'
     elif pontuacao >= 4:
-        return 'Risco moderado de seca'
+        return 'Moderado'
     else:
-        return 'Baixo risco de seca'
+        return 'Baixo'
 
 
 def recommend_crop(dados_climaticos, data):
@@ -130,7 +130,7 @@ def get_city_name(lat, lon):
 @app.route('/', methods=['GET', 'POST'])
 def home():
     current_date = datetime.now()
-    start_date = (current_date - timedelta(days=1)).strftime('%d/%m/%Y')
+    start_date = (current_date - timedelta(days=3)).strftime('%d/%m/%Y')
     end_date = (current_date).strftime('%d/%m/%Y')
 
 
