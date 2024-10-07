@@ -285,26 +285,21 @@ def home():
                             melhor_cultivo=None)
 
 
-# @app.route('/condicoes')
-# def condicoes():
-#     return render_template('condicoes.html')
+@app.route('/precipitacao')
+def precipitacao():
+    return render_template('precipitacao.html')
 
-# @app.route('/precipitacao')
-# def precipitacao():
-#     return render_template('precipitacao.html')
+@app.route('/indice_uv')
+def indice_uv():
+    return render_template('indice-uv.html')
 
-# @app.route('/indice_uv')
-# def indice_uv():
-#     return render_template('indice_uv.html')
+@app.route('/vento')
+def vento():
+    return render_template('vento.html')
 
-# @app.route('/vento')
-# def vento():
-#     return render_template('vento.html')
-
-# @app.route('/umidade')
-# def vento():
-#     return render_template('umidade.html')
-       
+@app.route('/umidade')
+def umidade():
+    return render_template('umidade.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

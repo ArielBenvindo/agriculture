@@ -1,5 +1,0 @@
-Flask==2.2.3
-requests==2.31.0
-geocoder==1.38.1
-pandas==1.5.3
-sqlite3
