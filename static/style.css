@@ -9,16 +9,18 @@
 }
 
 .background-mobile {
-    background: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.20) 0%,
-            rgba(0, 0, 0, 0.20) 100%),
-        linear-gradient(180deg,
-            #155042 25%,
-            #233A18 67%,
-            #122609 100%);
+    background: url('svg/background.svg');
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.bg-svg-pattern {
+    background-image: url('svg/footer.svg');
+    background-size: cover; /* Cobre todo o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede repetição da imagem */
+}
+
 
 .photo {
     width: 586px;
